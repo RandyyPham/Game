@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 
 /**
  * This class holds the window of the game
+ * 
+ * @author Randy Pham
  */
 public class Window extends Canvas {
 
