@@ -6,8 +6,10 @@ import java.awt.Graphics;
  * @author Randy Pham
  */
 public abstract class GameObject {
-    protected int x;
-    protected int y;
+    /**
+     * x and y represent the position of the GameObject in 2D space
+     */
+    protected int x, y;
     /**
      * deltaX represents the change in the x direction of a GameObject
      */
@@ -16,7 +18,10 @@ public abstract class GameObject {
      * deltaY represents the change in the y direction of a GameObject
      */
     protected int deltaY;
-
+    /**
+     * This determines the type of GameObject the object is. Is it a player? Is it a
+     * non-playable character?
+     */
     protected ID id;
 
     /**
