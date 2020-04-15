@@ -130,13 +130,7 @@ public class Game extends Canvas implements Runnable {
      * @return an integer that is within the maximum or minimum
      */
     public static int contain(int var, int min, int max) {
-        if (var >= max) {
-            return var = max;
-        } else if (var <= min) {
-            return var = min;
-        } else {
-            return var;
-        }
+        return Math.max(min, Math.min(max, var));
     }
 
     public static void main(String[] args) {
