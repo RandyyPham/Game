@@ -17,9 +17,10 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent event) {
         int key = event.getKeyCode();
 
+        // loop through entire game object list
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
-
+            
             if (tempObject.getID() == ID.Player) {
                 // key events for the player
 

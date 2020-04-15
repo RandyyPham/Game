@@ -27,6 +27,7 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
 
         this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(new MouseInput(handler));
 
         new Window(WIDTH, HEIGHT, "Title", this);
         // spawns player in the middle of the screen
