@@ -20,7 +20,7 @@ public class KeyInput extends KeyAdapter {
         // loop through entire game object list
         for (int i = 0; i < handler.object.size(); i++) {
             GameObject tempObject = handler.object.get(i);
-            
+
             if (tempObject.getID() == ID.Player) {
                 // key events for the player
 
@@ -40,6 +40,11 @@ public class KeyInput extends KeyAdapter {
                     tempObject.setDeltaX(5);
                 }
             }
+        }
+
+        // you can press the esc key to exit
+        if (key == KeyEvent.VK_ESCAPE) {
+            System.exit(1);
         }
     }
 

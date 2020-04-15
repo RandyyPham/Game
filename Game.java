@@ -16,6 +16,7 @@ public class Game extends Canvas implements Runnable {
     private boolean running = false;
 
     private Handler handler;
+    private HUD hud;
 
     public static final int WIDTH = 640;
     public static final int HEIGHT = WIDTH / 12 * 9;
@@ -25,13 +26,14 @@ public class Game extends Canvas implements Runnable {
      */
     public Game() {
         handler = new Handler();
+        hud = new HUD(handler);
 
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(new MouseInput(handler));
 
         new Window(WIDTH, HEIGHT, "Title", this);
         // spawns player in the middle of the screen
-        handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Player));
+        handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player));
     }
 
     /**
@@ -59,6 +61,7 @@ public class Game extends Canvas implements Runnable {
      * The game loop
      */
     public void run() {
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -81,7 +84,7 @@ public class Game extends Canvas implements Runnable {
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                //System.out.println("FPS: " + frames);
+                // System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
@@ -104,6 +107,7 @@ public class Game extends Canvas implements Runnable {
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
 
         handler.render(graphics);
+        hud.render(graphics);
 
         graphics.dispose();
         bufferedStrategy.show();
@@ -114,6 +118,25 @@ public class Game extends Canvas implements Runnable {
      */
     private void tick() {
         handler.tick();
+        hud.tick();
+    }
+
+    /**
+     * This method "contains" an integer to a maximum and minimum constraint
+     * 
+     * @param var - the integer value to contain
+     * @param max - the maximum value it can go to
+     * @param min - the minimum value it can go ot
+     * @return an integer that is within the maximum or minimum
+     */
+    public static int contain(int var, int min, int max) {
+        if (var >= max) {
+            return var = max;
+        } else if (var <= min) {
+            return var = min;
+        } else {
+            return var;
+        }
     }
 
     public static void main(String[] args) {

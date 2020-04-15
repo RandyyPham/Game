@@ -15,11 +15,13 @@ public class Player extends GameObject {
     public void tick() {
         x += deltaX;
         y += deltaY;
+
+        x = Game.contain(x, 0, Game.WIDTH - 38);
+        y = Game.contain(y, 0, Game.HEIGHT - 61);
     }
 
     public void render(Graphics graphics) {
         graphics.setColor(Color.white);
         graphics.fillRect(x, y, 32, 32);
     }
-
 }
