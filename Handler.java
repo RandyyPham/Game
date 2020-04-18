@@ -10,7 +10,7 @@ public class Handler {
     LinkedList<GameObject> object = new LinkedList<GameObject>();
 
     /**
-     * This method ticks all gameObjects
+     * This method updates all GameObjects each time tick() is called
      */
     public void tick() {
         // loop through entire GameObject list

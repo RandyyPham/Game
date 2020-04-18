@@ -92,7 +92,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     /**
-     * Render method. What is actually viewable from the window
+     * This method renders any GameObjects and graphics in the game
      */
     private void render() {
         BufferStrategy bufferedStrategy = this.getBufferStrategy();
@@ -114,7 +114,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     /**
-     * Tick method
+     * This method gets called repeatedly by the game loop to update the game
      */
     private void tick() {
         handler.tick();

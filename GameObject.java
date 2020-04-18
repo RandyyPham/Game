@@ -38,8 +38,16 @@ public abstract class GameObject {
         this.id = id;
     }
 
+    /**
+     * This method gets called repeatedly by the game loop. Things that keep
+     * occuring in-game should occur here (i.e. movement)
+     */
     public abstract void tick();
 
+    /**
+     * This method gets called by the game loop to render any associated graphics
+     * the GameObject has
+     */
     public abstract void render(Graphics graphics);
 
     /**

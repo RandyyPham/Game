@@ -30,15 +30,21 @@ public class MouseInput extends MouseAdapter {
                     tempObject.setDeltaX(0);
                     tempObject.setDeltaY(0);
 
+                    // the length of the journey
+                    int xDifference = Math.abs(mouseX) - Math.abs(tempObject.getX());
+                    int yDifference = Math.abs(mouseY) - Math.abs(tempObject.getY());
+
+                    double distance = Math.hypot(xDifference, yDifference);
+
+                    // the direction of the journey
+                    double xDirection = xDifference / distance;
+                    double yDirection = yDifference / distance;
+
                     // we want the player to move towards where right click was pressed and stop
                     // there
 
                     while (tempObject.getX() != mouseX || tempObject.getY() != mouseY) {
                         // while the player is not where the mouse clicked, move the player there
-
-                        // the length of the journey
-                        //int lengthOfX = Math.abs(tempObject.getX()) - Math.abs(mouseX);
-                        //int lengthOfY = Math.abs(tempObject.getY()) - Math.abs(mouseY);
 
                         if (tempObject.getX() < mouseX && tempObject.getY() < mouseY) {
                             tempObject.setDeltaX(1);
