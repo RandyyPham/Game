@@ -40,6 +40,8 @@ public class MouseInput extends MouseAdapter {
                     double xDirection = xDifference / distance;
                     double yDirection = yDifference / distance;
 
+                    //TODO: implement direction and distance of the journey to move the object
+
                     // we want the player to move towards where right click was pressed and stop
                     // there
 
